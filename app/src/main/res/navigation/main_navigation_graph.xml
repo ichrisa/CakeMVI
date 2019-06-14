@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            app:startDestination="@id/cakes">
+    <fragment
+            android:id="@+id/cakes"
+            android:name="com.chrisa.cakeapp.presentation.cakes.CakesFragment"
+            tools:layout="@layout/cakes"/>
+</navigation>

@@ -1,0 +1,82 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion versions.compileSdkVersion
+
+    defaultConfig {
+        applicationId "com.chrisa.cakeapp"
+        minSdkVersion versions.minSdkVersion
+        targetSdkVersion versions.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    lintOptions {
+        warningsAsErrors true
+        checkDependencies true
+        ignoreTestSources true
+        lintConfig file("lint.xml")
+    }
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin}"
+
+    implementation "androidx.arch.core:core-runtime:${versions.aacRuntime}"
+    implementation "androidx.lifecycle:lifecycle-extensions:${versions.aacLifecycleExtensions}"
+    implementation "android.arch.navigation:navigation-ui-ktx:${versions.aacNavigation}"
+    implementation "android.arch.navigation:navigation-fragment-ktx:${versions.aacNavigation}"
+    implementation "com.google.android.material:material:${versions.androidMaterial}"
+    implementation "androidx.constraintlayout:constraintlayout:${versions.constraintlayout}"
+
+    /* okhttp */
+    implementation "com.squareup.okhttp3:logging-interceptor:${versions.okhttp}"
+
+    /* retrofit */
+    implementation "com.squareup.retrofit2:retrofit:${versions.retrofit}"
+    implementation "com.squareup.retrofit2:converter-moshi:${versions.retrofit}"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:${versions.retrofit}"
+
+    /* glide */
+    implementation "com.github.bumptech.glide:glide:${versions.glide}"
+    annotationProcessor "com.github.bumptech.glide:compiler:${versions.glide}"
+
+    /* rxjava2 */
+    implementation "io.reactivex.rxjava2:rxjava:${versions.rxJava}"
+    implementation "io.reactivex.rxjava2:rxandroid:${versions.rxAndroid}"
+    implementation "com.jakewharton.rxbinding3:rxbinding:${versions.rxBinding}"
+    implementation "com.jakewharton.rxbinding3:rxbinding-core:${versions.rxBinding}"
+    implementation "com.jakewharton.rxbinding3:rxbinding-recyclerview:${versions.rxBinding}"
+    implementation "com.jakewharton.rxbinding3:rxbinding-swiperefreshlayout:${versions.rxBinding}"
+    implementation "com.jakewharton.rxrelay2:rxrelay:${versions.rxRelay}"
+
+    /* moshi */
+    implementation("com.squareup.moshi:moshi:${versions.moshi}")
+    kapt("com.squareup.moshi:moshi-kotlin-codegen:${versions.moshi}")
+
+    /* dagger2 */
+    implementation "com.google.dagger:dagger:${versions.dagger}"
+    implementation "com.google.dagger:dagger-android:${versions.dagger}"
+    implementation "com.google.dagger:dagger-android-support:${versions.dagger}"
+    kapt "com.google.dagger:dagger-compiler:${versions.dagger}"
+    kapt "com.google.dagger:dagger-android-processor:${versions.dagger}"
+
+    androidTestImplementation "androidx.test:runner:${versions.androidTestRunner}"
+    androidTestImplementation "androidx.test.espresso:espresso-core:${versions.espressoCore}"
+
+    testImplementation "org.jetbrains.kotlin:kotlin-test:${versions.kotlin}"
+    testImplementation "junit:junit:${versions.junit}"
+    testImplementation "com.nhaarman:mockito-kotlin:${versions.mockitoKotlin}"
+    testImplementation "com.google.truth:truth:${versions.truth}"
+}

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">The Cake App</string>
+    <string name="cake_image_description">Cake Image</string>
+    <string name="cake_error_image">Cake Error Image</string>
+    <string name="cake_empty_image">Cake Empty Image</string>
+    <string name="empty_cake_list">Looks like your cake list is empty</string>
+    <string name="error_cake_list">Oops, looks like we had trouble loading your cake list.</string>
+</resources>
